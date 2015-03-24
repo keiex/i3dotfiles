@@ -1,0 +1,22 @@
+background        no
+out_to_console 	  yes
+out_to_x	  no
+update_interval	  2
+total_run_times	  0
+short_units	  yes
+pad_percents	  3
+
+override_utf8_locale yes
+
+TEXT
+,[{"full_text": " $acpitemp°C [$cpu%]","color": "\#C5C8C6"},
+  {"full_text": " [$fs_free/$fs_size]", "color":"\#C5C8C6"},
+  {"full_text": "  [$memperc%][$mem/$memmax]", "color":"\#C5C8C6"},
+  ${if_up wlan0}{"full_text":"  ${wireless_essid wlan0} [${wireless_link_qual_perc wlan0}%]","color":"\#C5C8C6"},
+  $else${if_up eth0}{"full_text":"  eth0","color":"\#C5C8C6"},
+  $else{"full_text": "  disconnected","color":"\#C5C8C6"},$endif$endif
+  {"full_text": " [$battery_percent%]","color":"\#C5C8C6"},
+  {"full_text": " [$mixer%]", "color":"\#C5C8C6"},
+  {"full_text": "  ${time %a %d %b} ${time %H:%M}"}
+]
+
