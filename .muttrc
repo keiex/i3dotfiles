@@ -1,0 +1,42 @@
+#Details
+
+#IMAP
+set imap_user = "keiexzero@gmail.com"
+set imap_pass = "fuckyou asshole;"
+
+#Folders
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed = '+[Google Mail]/Drafs'
+#set trash = '+[Google Mail]/Trash'
+#set any_label = '+[Google Mail]/any_label'
+set move = no
+set imap_keepalive = 900
+
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+#Sorting
+
+set sort=reverse-threads
+set sort_aux=last-date-received
+set sort_browser=reverse-date
+
+#Appearance
+set index_format="%[%d/%m %I:%M]   %-20.20L   %s"
+set status_format="%f %>   Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F?  %l?"
+set status_on_top
+
+#Extra
+set mail_check = 60
+set mail_check_recent = yes
+bind index G imap-fetch-mail
+auto_view text/html
+
+#colors
+
+   color status    black white 
+   color indicator brightwhite black
+   color search    red black 
+   color markers   red black 
