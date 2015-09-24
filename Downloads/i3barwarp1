@@ -1,0 +1,42 @@
+#!/bin/bash
+
+echo "{ \"version\": 1, \"stop_signal\": 10, \"cont_signal\": 12, \"click_events\": true }"
+echo "[[],"
+conky -d -c $HOME/.conkyrcbar
+
+IFS="}"
+while read;do
+  IFS=" "
+  STR=`echo $REPLY | sed -e s/[{}]//g -e "s/ \"/\"/g" | awk '{n=split($0,a,","); for (i=1; i<=n; i++) {m=split(a[i],b,":"); if (b[1] == "\"name\"") {NAME=b[2]} if (b[1] =="\"x\"") {X=b[2]} if (b[1] =="\"y\"") {Y=b[2]} } print NAME " " X " " Y}'`
+  read NAME X Y <<< $STR
+  X=$(($X-50))
+  case "${NAME}" in
+    \"mpd\")
+      ~/mpd_control.sh
+      ;;
+    \"updates\")
+      yad --button Update:0 --text-info --geometry=235x240+$X+19 --class "YADWIN" --margins=10 --filename=<(pacman -Sup --print-format="%n %v" | grep -v "^::")
+      if [[ $? -eq 0 ]];then
+        urxvt -e sudo pacman -Syyu
+      fi
+      ;;
+    \"temp\")
+      yad --no-buttons --text-info --geometry=432x184+$X+19 --class "YADWIN" --margins=10 --filename=<(sensors)
+      ;;
+    \"mem\")
+      yad --no-buttons --text-info --geometry=535x803+1419+19 --class "YADWIN" --margins=30 --filename=<(sudo python2 ~/ps_mem.py)
+      ;;
+    \"cpu\")
+      yad --no-buttons --text-info --geometry=535x160+1419+19 --class "YADWIN" --margins=30 --filename=<(~/cpu_usage.sh)
+      ;;
+    \"date\")
+      yad --no-buttons --geometry=+1702+19 --class "YADWIN" --calendar
+      ;;
+    \"clock\")
+      xclock
+      ;;
+    *)
+      ;;
+  esac
+  IFS="}"
+done

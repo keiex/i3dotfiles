@@ -1,0 +1,16 @@
+canto-curses
+compton
+dmenu2
+i3-gaps-git
+package-query
+peerflix
+prezto-git
+quiterss
+rtv
+terminess-powerline-font-git
+ttf-dejavusansmono-powerline-git
+ttf-font-awesome
+ttf-font-icons
+ttf-inconsolata-dz-powerline
+ultra-flat-icons
+yaourt

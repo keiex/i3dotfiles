@@ -1,0 +1,29 @@
+auto-reload yes
+#feed-sort-order unreadarticlecount-asc 
+feed-sort-order title
+refresh-on-startup yes
+reload-time 15
+reload-threads 4
+
+browser firefox -new-tab
+notify-always yes
+notify-format "newsbeuter: %n unread articles within %f unread feeds"
+notify-program notify-send
+notify-xterm yes
+player mplayer
+show-read-feeds no
+
+bind-key \ reload-all
+bind-key "RIGHT" select-tag
+bind-key "SPACE" open
+
+datetime-format "%d/%m %I:%M"
+
+articlelist-format "  %D   %?T?%-17T   ?%t"
+feedlist-format     "  %t"
+
+color listnormal                                            color8    default
+color listfocus                                             white    default    bold
+color listnormal_unread 				    white  default
+color listfocus_unread 					    white    default   bold
+color info                                                  black    black

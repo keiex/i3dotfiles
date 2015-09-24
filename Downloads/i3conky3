@@ -1,0 +1,23 @@
+double_buffer yes
+own_window yes
+own_window_transparent no
+own_window_type override
+own_window_hints sticky
+draw_borders no
+border_width 0
+alignment top_left
+update_interval 1
+default_color c5c8c6
+own_window_colour 1d1f21
+use_xft yes
+xftfont Input:size=10
+override_utf8_locale yes
+minimum_size 1120 15
+maximum_width 1120
+use_spacer none
+gap_x 80
+gap_y 30
+TEXT
+${if_mpd_playing} ${font WenQuanYi Zenhei Mono:size=9}${mpd_artist 16} - ${mpd_title 16} ${mpd_bar 5,180} $endif${font}\
+${alignc -25}${time %a %b %d %I:%M:%S %p}\
+${alignr}${exec iwgetid -r}

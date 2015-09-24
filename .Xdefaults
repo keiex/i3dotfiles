@@ -12,11 +12,11 @@ URxvt*background:  #1d1f21
 URxvt*foreground: #c5c8c6
 URxvt*saveLines:		10000
 
-URxvt*font:-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-u
+! URxvt*font:-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-u
 
-
-URxvt*depth: 32
-
+URxvt*font: xft:Terminess Powerline:pixelsize=14, xft:Fixed:antialias=false:style=ja:pixelsize=13
+!URxvt*font: xft:Dejavu Sans for Powerline:pixelsize=14, xft:Fixed:antialias=false:style=ja:pixelsize=13
+ 
 ! Base16 Tomorrow
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
